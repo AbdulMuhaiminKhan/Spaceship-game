@@ -1,44 +1,74 @@
-Abdul spaceship game is a 2 player 2D space shooter game built using pygame.
-player control spaceship and try to hit each other while taking in consideration the obstacles and trying to collect power ups . The game ends when one players health reaches zero.
+<p align="center">
+  <img src="docs/banner.svg" alt="Spaceship Game: two-player local space shooter built with Python and Pygame" width="100%">
+</p>
 
-Player1:
-Controls: WASD for movement and left ctrl for shooting
+<p align="center">
+  <img alt="Python" src="https://img.shields.io/badge/Python-3.x-3776AB?style=flat-square&logo=python&logoColor=white">
+  <img alt="Pygame" src="https://img.shields.io/badge/Pygame-2.x-2b9348?style=flat-square">
+  <img alt="Players" src="https://img.shields.io/badge/players-2%20(local)-f5b82e?style=flat-square">
+  <img alt="Genre" src="https://img.shields.io/badge/genre-arcade%20shooter-c0392b?style=flat-square">
+</p>
 
-Player2:
-Controls: arrow keys  for movement and right ctrl for shooting
+<p align="center">
+  Two ships, one screen, one winner. Dodge obstacles, grab power-ups and shoot your friend out of the sky.
+</p>
 
-How to Run the Game:
-Requirements:
+<p align="center">
+  <img src="docs/gameplay.png" alt="Gameplay: yellow and red ships on either side of a divider, with obstacles, health bars and power-ups" width="85%">
+</p>
 
-	Python 3.x
-	Pygame (install with pip install pygame)
+## ✨ Features
 
-Assets Folder:
+- **Local 1v1 multiplayer** on a single keyboard, each player locked to their half of the arena
+- **Random obstacles** that soak up bullets and change every round
+- **Power-ups**
+  - 🟩 **Health**: +1 HP, up to the maximum
+  - 🟧 **Rapid fire**: automatic fire for 5 seconds
+- **Health bars**, sound effects for shots, hits and pickups, and a winner screen
+- Object-oriented design: `Spaceship`, `Bullet`, `Obstacle` and power-up classes
 
-	Ensure there is an Assets folder in the same directory with:
-	spaceship_yellow.png
-	spaceship_red.png
-	space.png
+## 🎮 Controls
 
-Spaceship class:
-Encapsulates player  properties like health, movement , shooting and controls
+| | Move | Shoot |
+|---|---|---|
+| 🟡 **Player 1 (yellow)** | `W` `A` `S` `D` | `Left Ctrl` |
+| 🔴 **Player 2 (red)** | Arrow keys | `Right Ctrl` |
 
-Bullet class:
-Represents bullets shot by spaceship with movement and collision detection
+Each ship starts with **10 HP**. The first to reach 0 loses.
 
-obstacle class:
-rectangular size obstacle formed randomly on the screen which blocks bullet
+## 🚀 Run it
 
-powerup class:
-a green small rectangle that spawns randomly and increases health by 1 till max
+```bash
+git clone https://github.com/AbdulMuhaiminKhan/Spaceship-game.git
+cd "Spaceship-game/Pygame Project Submission – Abdul Muhaimin khan"
+pip install pygame
+python game_abdulkhan.py
+```
 
-rapid fire power up:
-an orange power-up that make the player fire rapidly for 5 seconds
+> Run the game from inside its folder so it can find the `Assets/` directory (sprites, background and sounds).
 
-draw health bar:
-display each spaceships current health at the top of screen
+## 🧱 How it's built
 
+| Component | Responsibility |
+|---|---|
+| `Spaceship` | Position, health, movement bounds, shooting and the rapid-fire timer |
+| `Bullet` | Movement and collision with ships, obstacles and screen edges |
+| `Obstacle` | Randomly placed blocks that stop bullets |
+| `healthPowerUp` / `RapidFirePowerUp` | Spawn at random positions and apply their effect on contact |
+| `draw_health_bar` / `draw_window` | Render the HUD and every object each frame at 60 FPS |
 
+Hits are sent through custom Pygame events (`yellow_hit`, `red_hit`), which keeps collision detection separate from game-state updates.
 
+## 📁 Project structure
 
+```
+Spaceship-game/
+├── docs/                       # banner and gameplay screenshot
+└── Pygame Project Submission – Abdul Muhaimin khan/
+    ├── game_abdulkhan.py       # the whole game
+    └── Assets/                 # sprites, background and sound effects
+```
 
+---
+
+<p align="center">Made by <a href="https://github.com/AbdulMuhaiminKhan">Abdul Muhaimin Khan</a></p>
